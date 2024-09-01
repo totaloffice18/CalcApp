@@ -14,7 +14,7 @@ class SecondActivity : AppCompatActivity() {
         val view=binding.root
         setContentView(view)
 
-        val value=intent.getFloatExtra("value",0.0f)
+        val value=intent.getDoubleExtra("value",0.0)
         binding.textView.text=value.toString()
 
     }

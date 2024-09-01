@@ -122,10 +122,11 @@ class MainActivity : AppCompatActivity() {
             //　型「小数点化」、割り算、画面遷移
             //　editTextがいずれか空なら実行しない
             if(JUDGE==true){
-                val VALUE1:Double=str1.toDouble()
-                val VALUE2:Double=str2.toDouble()
+
 
                 try{
+                    val VALUE1:Double=str1.toDouble()
+                    val VALUE2:Double=str2.toDouble()
                     val VALUE=VALUE1/VALUE2
                 }catch(e:Exception){
                     Log.d("UI_PARTS","数値が入力されていません")

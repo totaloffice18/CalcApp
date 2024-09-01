@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
             //　editTextの空判定
             val isNullOrEmpty1=str1.isNullOrEmpty()
             val isNullOrEmpty2=str2.isNullOrEmpty()
-            val FLAG=isNullOrEmpty1||isNullOrEmpty2
+            val JUDGE=isNullOrEmpty1||isNullOrEmpty2
 
             //　型「小数点化」、足し算、画面遷移
             //　editTextがいずれか空なら実行しない
-            if (FLAG==true){
+            if (JUDGE==true){
             }else{
                 val VALUE1:Double=str1.toDouble()
                 val VALUE2:Double=str2.toDouble()
@@ -116,32 +116,37 @@ class MainActivity : AppCompatActivity() {
 
             //　editTextの空判定
             val isNullOrEmpty1=str1.isNullOrEmpty()
-            val isNullOrEmpty2=str1.isNullOrEmpty()
+            val isNullOrEmpty2=str2.isNullOrEmpty()
             val JUDGE=isNullOrEmpty1||isNullOrEmpty2
 
-            //　型「小数点化」、割り算、画面遷移
+            //　型「小数点化」、掛け算、画面遷移
             //　editTextがいずれか空なら実行しない
-            if(JUDGE==true){
+           if(JUDGE==true){
 
+               try{
+                   val VALUE1:Double=str1.toDouble()
+                   val VALUE2:Double=str2.toDouble()
+                   val VALUE=VALUE1/VALUE2
+               }catch(e:java.lang.Exception){
+                   Log.d("UI_PARTS","数値が入力されていません")
+               }finally{
+               }
 
-                try{
-                    val VALUE1:Double=str1.toDouble()
-                    val VALUE2:Double=str2.toDouble()
-                    val VALUE=VALUE1/VALUE2
-                }catch(e:Exception){
-                    Log.d("UI_PARTS","数値が入力されていません")
-                }finally{
-                }
             }else{
                 val VALUE1:Double=str1.toDouble()
                 val VALUE2:Double=str2.toDouble()
                 val VALUE=VALUE1/VALUE2
+
                 val intent=Intent(this,SecondActivity::class.java)
                 intent.putExtra("value",VALUE)
                 startActivity(intent)
 
             }
 
-        }
+            //Log.d("UI_PARTS",str1.toString()+isNullOrEmpty1.toString())
+            //Log.d("UI_PARTS",str2.toString()+isNullOrEmpty2.toString())
+            //Log.d("UI_PARTS",JUDGE.toString())
+
+            }
     }
 }
